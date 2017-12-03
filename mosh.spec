@@ -8,6 +8,7 @@ Group:		Applications/Internet
 URL:		https://mosh.org/
 Source0:	https://github.com/downloads/keithw/mosh/mosh-%{version}.tar.gz
 
+BuildRequires:	perl-generators
 BuildRequires:	protobuf-compiler
 BuildRequires:	protobuf-devel
 BuildRequires:	libutempter-devel
@@ -16,7 +17,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	openssl-devel
 Requires:	openssh-clients
 Requires:	openssl
-Requires:	perl-IO-Socket-IP
+Requires:	perl(IO::Socket::INET6)
 
 %description
 Mosh is a remote terminal application that supports:
@@ -31,8 +32,10 @@ Mosh is a remote terminal application that supports:
 
 
 %build
+./autogen.sh
 # Use upstream's more aggressive hardening instead of Fedora's defaults
 export CFLAGS="-g -O2" CXXFLAGS="-g -O2"
+./autogen.sh
 %configure --enable-compile-warnings=error
 make %{?_smp_mflags}
 
@@ -42,7 +45,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %files
-%doc README.md COPYING ChangeLog
+%doc README.md ChangeLog
+%license COPYING
 %{_bindir}/mosh
 %{_bindir}/mosh-client
 %{_bindir}/mosh-server
