@@ -1,6 +1,6 @@
 Name:		mosh
 Version:	1.3.2
-Release:	2.20171202git1e526aa%{?dist}
+Release:	3.20171203git1e526aa%{?dist}
 Summary:	Mobile shell that supports roaming and intelligent local echo
 
 License:	GPLv3+
@@ -55,8 +55,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Dec 02 2017 Aron Griffis <aron@scampersand.com> - 1.3.2-2.20171202git1e526aa
-- Nightly build from git
+* Sun Dec 03 2017 Aron Griffis <aron@scampersand.com> - 1.3.2-3.20171203git1e526aa
+- Nightly build from git master
 
 * Sun Jul 12 2015 John Hood <cgull@glup.org> - 1.2.5-1
 - Update to mosh 1.2.5
