@@ -6,7 +6,7 @@ Summary:	Mobile shell that supports roaming and intelligent local echo
 License:	GPLv3+
 Group:		Applications/Internet
 URL:		https://mosh.org/
-Source0:	https://github.com/downloads/keithw/mosh/mosh-%{version}.tar.gz
+Source0:	mosh-%{version}-%{release}.tar.xz
 
 BuildRequires:	perl-generators
 BuildRequires:	protobuf-compiler
@@ -33,10 +33,7 @@ Mosh is a remote terminal application that supports:
 
 %build
 ./autogen.sh
-# Use upstream's more aggressive hardening instead of Fedora's defaults
-export CFLAGS="-g -O2" CXXFLAGS="-g -O2"
-./autogen.sh
-%configure --enable-compile-warnings=error
+%configure --disable-silent-rules
 make %{?_smp_mflags}
 
 
