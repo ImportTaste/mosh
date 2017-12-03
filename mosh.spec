@@ -6,7 +6,7 @@ Summary:	Mobile shell that supports roaming and intelligent local echo
 License:	GPLv3+
 Group:		Applications/Internet
 URL:		https://mosh.org/
-Source0:	mosh-%{version}-%{release}.tar.xz
+Source0:	mosh-%{version}.tar.xz
 
 BuildRequires:	autoconf
 BuildRequires:	automake
