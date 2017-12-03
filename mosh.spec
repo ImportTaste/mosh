@@ -8,6 +8,8 @@ Group:		Applications/Internet
 URL:		https://mosh.org/
 Source0:	mosh-%{version}-%{release}.tar.xz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	perl-generators
 BuildRequires:	protobuf-compiler
 BuildRequires:	protobuf-devel
