@@ -1,6 +1,6 @@
 Name:		mosh
 Version:	1.3.2
-Release:	7.20180413git60859e9%{?dist}
+Release:	8.20180804git4aff80b%{?dist}
 Summary:	Mobile shell that supports roaming and intelligent local echo
 
 License:	GPLv3+
@@ -55,7 +55,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %changelog
-* Fri Apr 13 2018 Aron Griffis <aron@scampersand.com> - 1.3.2-7.20180413git60859e9
+* Sat Aug 04 2018 Aron Griffis <aron@scampersand.com> - 1.3.2-8.20180804git4aff80b
 - Nightly build from git master
 
 * Sun Jul 12 2015 John Hood <cgull@glup.org> - 1.2.5-1
