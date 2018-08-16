@@ -107,7 +107,6 @@ static int run_server( const char *desired_ip, const char *desired_port,
 		       const string &command_path, char *command_argv[],
 		       const int colors, unsigned int verbose, bool with_motd );
 
-using namespace std;
 
 static void print_version( FILE *file )
 {
@@ -150,7 +149,7 @@ static string get_SSH_IP( void )
     fputs( "Warning: SSH_CONNECTION not found; binding to any interface.\n", stderr );
     return string( "" );
   }
-  istringstream ss( SSH_CONNECTION );
+  std::istringstream ss( SSH_CONNECTION );
   string dummy, local_interface_IP;
   ss >> dummy >> dummy >> local_interface_IP;
   if ( !ss ) {
@@ -682,11 +681,11 @@ static void serve( int host_fd, Terminal::Complete &terminal, ServerConnection &
       int timeout = INT_MAX;
       uint64_t now = Network::timestamp();
 
-      timeout = min( timeout, network.wait_time() );
-      timeout = min( timeout, terminal.wait_time( now ) );
+      timeout = std::min( timeout, network.wait_time() );
+      timeout = std::min( timeout, terminal.wait_time( now ) );
       if ( (!network.get_remote_state_num())
 	   || network.shutdown_in_progress() ) {
-        timeout = min( timeout, 5000 );
+        timeout = std::min( timeout, 5000 );
       }
       /*
        * The server goes completely asleep if it has no remote peer.
@@ -701,7 +700,7 @@ static void serve( int host_fd, Terminal::Complete &terminal, ServerConnection &
 	  /* 24 days might be too soon.  That's OK. */
 	  network_sleep = INT_MAX;
 	}
-	timeout = min( timeout, static_cast<int>(network_sleep) );
+	timeout = std::min( timeout, static_cast<int>(network_sleep) );
       }
 
       /* poll for events */
