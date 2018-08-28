@@ -10,6 +10,7 @@ Source0:	mosh-%{version}.tar.xz
 
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:  gcc
 BuildRequires:	perl-generators
 BuildRequires:	protobuf-compiler
 BuildRequires:	protobuf-devel
